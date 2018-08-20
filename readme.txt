@@ -8,11 +8,11 @@ Requires at least: 3.1
 Tested up to: 4.9
 Stable tag: 1.0.0
 
-An easy way to embed an fully-featured users dashboard for Freemius powered shops and products.
+An easy way to embed a fully-featured users dashboard for Freemius powered shops and products.
 
 == Description ==
 
-An easy way to embed an fully-featured users dashboard for Freemius powered shops and products.
+An easy way to embed a fully-featured users dashboard for Freemius powered shops and products.
 
 = How to use it? =
 1. Create a new page on your website. We recommend using one of the following slugs: `users`, `account`, `members`.
