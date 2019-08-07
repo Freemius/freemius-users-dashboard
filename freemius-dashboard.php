@@ -1,8 +1,8 @@
 <?php
     /**
-     * Plugin Name: Freemius Users Dashboard
+     * Plugin Name: Freemius User Dashboard
      * Plugin URI:  https://freemius.com/
-     * Description: Embeddable Users Dashboard for Freemius powered shops and products.
+     * Description: Embeddable User Dashboard for Freemius powered shops and products.
      * Version:     1.0.0
      * Author:      Freemius
      * Author URI:  https://freemius.com
