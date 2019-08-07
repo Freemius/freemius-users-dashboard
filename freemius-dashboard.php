@@ -84,17 +84,47 @@
                 // Clear cache on an hourly basis.
                 date('Y-m-d H');
 
+        $user_id      = null;
+        $access_token = null;
+
+        if (is_user_logged_in() && class_exists( 'FS_SSO' )) {
+            $sso = FS_SSO::instance();
+
+            $user_id = $sso->get_freemius_user_id();
+
+            if ( is_numeric( $user_id ) ) {
+                $access_token = $sso->get_freemius_access_token();
+
+                $access_token = is_object( $access_token ) ?
+                    $access_token->access :
+                    null;
+            }
+        }
+
+        $dashboard_params = array(
+            'css'        => $css,
+            'public_key' => $public_key,
+        );
+
+        if (is_numeric( $store_id )) {
+            $dashboard_params['store_id'] = $store_id;
+        }
+
+        if (is_numeric( $product_id )) {
+            $dashboard_params['product_id'] = $product_id;
+        }
+
+        if (is_numeric( $user_id ) && !empty($access_token)) {
+            $dashboard_params['user_id'] = $user_id;
+            $dashboard_params['token']   = $access_token;
+        }
+
         return '
 <script type="text/javascript" src="' . WP_FS__MEMBERS_DASHBOARD_SUBDOMAIN . '?ck=' . $cache_killer . '"></script>
 <script id="fs_dashboard_anchor" type="text/javascript">
-	(function(){
-		FS.Members.configure({
-			css:        ' . json_encode( $css ) . ',
-			public_key: \'' . $public_key . '\',
-			' . ( is_numeric( $store_id ) ? "store_id:   '" . $store_id . "'" : '' ) .
-               ( is_numeric( $product_id ) ? "product_id: '" . $product_id . "'" : '' ) . '
-		}).open();
-	})();
+    (function(){
+        FS.Members.configure(' . json_encode( $dashboard_params ) . ').open();
+    })();
 </script>
 ';
     }
