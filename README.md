@@ -4,4 +4,4 @@ A simple shortcode plugin to embed a fully-featured users dashboard to your Word
 
 ## Installation Instructions
 You can find the complete installation instructions in the link below:
-[http://freemius.com/fs-site/help/documentation/selling-with-freemius/users-account/](http://freemius.com/fs-site/help/documentation/selling-with-freemius/users-account/)
+[http://freemius.com/help/documentation/selling-with-freemius/users-account/](http://freemius.com/help/documentation/selling-with-freemius/users-account/)
