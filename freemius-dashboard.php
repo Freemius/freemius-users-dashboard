@@ -87,7 +87,7 @@
         $user_id      = null;
         $access_token = null;
 
-        if (is_user_logged_in() && class_exists( 'FS_SSO' )) {
+        if ( is_user_logged_in() && class_exists( 'FS_SSO' ) ) {
             $sso = FS_SSO::instance();
 
             $user_id = $sso->get_freemius_user_id();
@@ -119,14 +119,14 @@
             $dashboard_params['token']   = $access_token;
         }
 
-        return '
+        return apply_filters( 'fs_members_dashboard', '
 <script type="text/javascript" src="' . WP_FS__MEMBERS_DASHBOARD_SUBDOMAIN . '?ck=' . $cache_killer . '"></script>
 <script id="fs_dashboard_anchor" type="text/javascript">
     (function(){
         FS.Members.configure(' . json_encode( $dashboard_params ) . ').open();
     })();
 </script>
-';
+');
     }
 
     function fs_add_members_dashboard_shortcode() {
