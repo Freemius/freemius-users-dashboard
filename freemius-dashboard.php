@@ -123,7 +123,11 @@
 <script type="text/javascript" src="' . WP_FS__MEMBERS_DASHBOARD_SUBDOMAIN . '?ck=' . $cache_killer . '"></script>
 <script id="fs_dashboard_anchor" type="text/javascript">
     (function(){
-        FS.Members.configure(' . json_encode( $dashboard_params ) . ').open();
+        FS.Members.configure(' . json_encode( $dashboard_params ) . ').open({
+            afterLogout: function() {
+                window.location.href = \'' . str_replace( '&amp;', '&', wp_logout_url() ) . '\';
+            }
+        });
     })();
 </script>
 ');
