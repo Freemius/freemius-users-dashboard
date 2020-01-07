@@ -134,7 +134,7 @@
     }
 
     function fs_add_members_dashboard_shortcode() {
-        wp_enqueue_style( 'jquery' );
+        wp_enqueue_script( 'jquery' );
         add_shortcode( 'fs_members', 'fs_members_dashboard_shortcode' );
     }
 
