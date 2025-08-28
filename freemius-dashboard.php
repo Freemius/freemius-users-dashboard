@@ -26,8 +26,8 @@
 
     if ( ! defined( 'WP_FS__MEMBERS_DASHBOARD_SUBDOMAIN' ) ) {
         define( 'WP_FS__MEMBERS_DASHBOARD_SUBDOMAIN', WP_FS__MEMBERS_DASHBOARD_DEBUG ?
-            'http://users.freemius-local.com:4200/dashboard.js' :
-            'https://users.freemius.com/dashboard.js'
+            'http://customers.freemius-local.com:4200/dashboard.js' :
+            'https://customers.freemius.com/js/v1/'
         );
     }
 
