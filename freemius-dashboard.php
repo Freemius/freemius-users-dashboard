@@ -1,8 +1,8 @@
 <?php
     /**
-     * Plugin Name: Freemius Users Dashboard
+     * Plugin Name: Freemius Customer Portal
      * Plugin URI:  https://freemius.com/
-     * Description: Embeddable Users Dashboard for Freemius powered shops and products.
+     * Description: Embeddable the Customer Portal for Freemius powered shops and products.
      * Version:     1.0.1
      * Author:      Freemius
      * Author URI:  https://freemius.com
@@ -45,7 +45,7 @@
         $public_key = isset( $atts['public_key'] ) && is_string( $atts['public_key'] ) ? $atts['public_key'] : null;
 
         if ( ! is_numeric( $store_id ) || empty($public_key) ) {
-            return '<p style="font-weight: bold; color: red;">You have to specify the store_id and its public_key to embed the Freemius members dashboard securely to your site.</p>';
+            return '<p style="font-weight: bold; color: red;">You have to specify the store_id and its public_key to embed the Freemius Customer Portal securely to your site.</p>';
         }
 
         $product_id = isset( $atts['product_id'] ) && is_numeric( $atts['product_id'] ) ? $atts['product_id'] : null;
