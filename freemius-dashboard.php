@@ -13,7 +13,7 @@
      * @package     Freemius Cleanup
      * @copyright   Copyright (c) 2018, Freemius, Inc.
      * @license     https://opensource.org/licenses/mit MIT License
-     * @since       1.0.0
+     * @since       1.0.1
      */
 
     if ( ! defined( 'ABSPATH' ) ) {
