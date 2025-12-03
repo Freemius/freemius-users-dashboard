@@ -84,10 +84,11 @@
                 // Clear cache on an hourly basis.
                 date('Y-m-d H');
 
-        $user_id      = null;
-        $access_token = null;
+        $user_id       = null;
+        $access_token  = null;
+        $is_sso_active = class_exists( 'FS_SSO' );
 
-        if ( is_user_logged_in() && class_exists( 'FS_SSO' ) ) {
+        if ( is_user_logged_in() && $is_sso_active ) {
             $sso = FS_SSO::instance();
 
             $user_id = $sso->get_freemius_user_id();
@@ -119,15 +120,16 @@
             $dashboard_params['token']   = $access_token;
         }
 
+        $open_params = '';
+        if ( $is_sso_active ) {
+            $open_params = '{ afterLogout: function() { window.location.href = \'' . str_replace( '&amp;', '&', wp_logout_url() ) . '\'; }}';
+        }
+
         return apply_filters( 'fs_members_dashboard', '
 <script type="text/javascript" src="' . WP_FS__MEMBERS_DASHBOARD_SUBDOMAIN . '?ck=' . $cache_killer . '"></script>
 <script id="fs_dashboard_anchor" type="text/javascript">
     (function(){
-        FS.Members.configure(' . json_encode( $dashboard_params ) . ').open({
-            afterLogout: function() {
-                window.location.href = \'' . str_replace( '&amp;', '&', wp_logout_url() ) . '\';
-            }
-        });
+        FS.Members.configure(' . json_encode( $dashboard_params ) . ').open(' . $open_params . ');
     })();
 </script>
 ');
