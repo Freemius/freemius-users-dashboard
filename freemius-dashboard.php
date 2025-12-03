@@ -3,17 +3,17 @@
      * Plugin Name: Freemius Customer Portal
      * Plugin URI:  https://freemius.com/
      * Description: Embeddable the Customer Portal for Freemius powered shops and products.
-     * Version:     1.0.0
+     * Version:     1.0.2
      * Author:      Freemius
      * Author URI:  https://freemius.com
      * License:     MIT
      */
 
     /**
-     * @package     Freemius Cleanup
+     * @package     Freemius Customer Portal
      * @copyright   Copyright (c) 2018, Freemius, Inc.
      * @license     https://opensource.org/licenses/mit MIT License
-     * @since       1.0.1
+     * @since       1.0.2
      */
 
     if ( ! defined( 'ABSPATH' ) ) {
